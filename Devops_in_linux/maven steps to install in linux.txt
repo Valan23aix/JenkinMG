@@ -1,4 +1,4 @@
-[root@ip-192-168-2-13 opt]# wget https://www-eu.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
+[root@ip-192-168-2-13 opt]# wget http://mirrors.estointernet.in/apache/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz
 
 --2019-07-19 14:22:55--  https://www-eu.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz
 Resolving www-eu.apache.org (www-eu.apache.org)... 95.216.24.32, 2a01:4f9:2a:185f::2
@@ -42,9 +42,10 @@ drwxr-xr-x. 6 root root      99 Jul 19 14:24 apache-maven-3.6.0
 lrwxrwxrwx. 1 root root      18 Jul 19 14:27 maven -> apache-maven-3.6.0
 [root@ip-192-168-2-13 opt]#
 
-[root@ip-192-168-2-13 opt]# vi /etc/profile.d/maven.sh
-
+[root@ip-192-168-2-13 opt]#  vi /etc/profile.d/maven.sh
+export JAVA_HOME=/usr/lib/jvm/jre-openjdk
 export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
 export PATH=${M2_HOME}/bin:${PATH}
 
 [root@ip-192-168-2-13 opt]# source /etc/profile.d/maven.sh
@@ -56,3 +57,35 @@ Java version: 1.8.0_212, vendor: Oracle Corporation, runtime: /usr/lib/jvm/java-
 Default locale: en_US, platform encoding: UTF-8
 OS name: "linux", version: "3.10.0-957.1.3.el7.x86_64", arch: "amd64", family: "unix"
 [root@ip-192-168-2-13 opt]#
+=================================================================================
+/etc/profile.d/java.sh
+export JAVA_HOME=/opt/jdk1.8.0_222
+export JRE_HOME=/opt/jdk1.8.0_222/jre
+export PATH=$PATH:/opt/jdk1.8.0_222/bin:/opt/jdk1.8.0_222/jre/bin
+
+
+[root@ip-172-31-93-218 maven]# vi /etc/profile.d/maven.sh
+export JAVA_HOME=/usr/lib/jvm/jre-openjdk
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+
+[root@ip-172-31-93-218 maven]# source /etc/profile.d/maven.sh
+
+[root@ip-172-31-93-218 maven]# mvn -version
+Apache Maven 3.6.1 (d66c9c0b3152b2e69ee9bac180bb8fcc8e6af555; 2019-04-04T19:00:29Z)
+Maven home: /opt/maven
+Java version: 1.8.0_222, vendor: Oracle Corporation, runtime: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.222.b10-0.el7_6.x86_64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-957.1.3.el7.x86_64", arch: "amd64", family: "unix"
+[root@ip-172-31-93-218 maven]#
+
+[root@ip-172-31-93-218 maven]# more /etc/profile.d/maven.sh
+export JAVA_HOME=/usr/lib/jvm/jre-openjdk
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+[root@ip-172-31-93-218 maven]#
+
+
+
