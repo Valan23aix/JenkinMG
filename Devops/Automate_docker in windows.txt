@@ -1,0 +1,5 @@
+https://success.outsystems.com/Documentation/Development_FAQs/How_to_automate_Docker_container_deployment_with_Jenkins
+
+
+https://developpaper.com/building-jenkins-maven-git-continuous-integration-environment-on-centos-7/
+
